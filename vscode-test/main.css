@@ -1,0 +1,12 @@
+header {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid;
+  text-align: center;
+}
+
+header h1 {
+  color: red;
+}
+/*# sourceMappingURL=main.css.map */
