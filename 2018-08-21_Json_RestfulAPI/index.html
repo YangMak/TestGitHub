@@ -5,11 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Restful API Json-Test</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js'></script>
 </head>
 
 <body>
+    <img src="http://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand.png?scale=1" alt="POE">
+    <div id="creat">
+        <input type="text" placeholder="name">
+        <a href="javascript:;">Creat</a>
+    </div>
+    <div id="delete">
+        <input type="text" placeholder="id">
+        <a href="javascript:;">Delete</a>
+    </div>
+    <div id="updata">
+        <input id="id" type="text" placeholder="id">
+        <input id="name" type="text" placeholder="name">
+        <a href="javascript:;">Updata</a>
+    </div>
+    <div id="users"></div>
+    <script>
+        $(function() {
+            $.ajax({
+                    url: 'http://localhost:3000/user',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {}
+                }).done(function(res) {
+                    console.log(res);
+                    $('#users').empty();
+                    res.forEach(function(user) {
+                        $('#users').append('<li>' + user.id + ' | ' + user.name + '</li>');
+                    })
+                })
+                .fail(function(err) {
+                    console.log(err)
+                })
+        })
+        $('#creat > a').on('click', function() {
+            let name = $('#creat > input').val().trim();
+            if (!name) return false;
+            $.ajax({
+                url: 'http://localhost:3000/user',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    name: $('#creat > input').val()
+                }
+            })
+        })
 
+        $('#delete > a').on('click', function() {
+            let id = $('#delete > input').val().trim();
+            if (!id) return false;
+            $.ajax({
+                    url: 'http://localhost:3000/user/' + id,
+                    method: 'delete',
+                    dataType: 'json',
+                }).done(function(res) {
+                    console.log(res);
+                })
+                .fail(function(err) {
+                    console.log(err)
+                })
+        })
+        $('#updata > a').on('click', function() {
+            let name = $('#updata > #name').val().trim();
+            let id = $('#updata > #id').val().trim();
+            if (!id || !name) return false;
+            $.ajax({
+                    url: 'http://localhost:3000/user/' + id,
+                    method: 'put',
+                    dataType: 'json',
+                    data: {
+                        name: name
+                    }
+                }).done(function(res) {
+                    console.log(res);
+                })
+                .fail(function(err) {
+                    console.log(err)
+                })
+        })
+    </script>
 </body>
 
 </html>
