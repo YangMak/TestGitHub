@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+</head>
+
+<body>
+    <style>
+        #main button {
+            background: #ff0000;
+            display: inline-block;
+        }
+        
+        #main .grayColor {
+            background: #c0c0c0;
+            width: 72px;
+            height: 42px;
+            ;
+        }
+    </style>
+    <div id="main" style="width:100%;text-align: -webjit-center;">
+        <button class="grayColor">one</button>
+        <button>two</button>
+        <button>three</button>
+        <button>four</button>
+        <button>five</button>
+    </div>
+    <div id="close"><button id="closeEvent">Close Event</button></div>
+    <script>
+        var boo = function() {
+            $("#main").off('click', 'button', foo);
+        }
+        var foo = function(e) {
+            let tgd = $(e.target);
+            let activeB = $('.grayColor')
+            console.log(tgd);
+            console.log(activeB);
+            if (tgd.prevObject === activeB.prevObject) { //???
+                console.log('=');
+                return activeB;
+            } else {
+                console.log('G');
+                activeB.removeClass('grayColor');
+                tgd.addClass('grayColor');
+            }
+        };
+        $("#main").on('click', 'button', foo);
+        //$("#main > button").on('click', foo);
+        $("#close").on('click', 'button', boo);
+    </script>
+</body>
+
+</html>
