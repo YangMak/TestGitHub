@@ -19,15 +19,57 @@
         </div>
         <div class="row cus-contents ">
             <ul class="progress-content">
-                <li class="active">Step 1.</li>
-                <li>Step 2.</li>
-                <li>Step 3.</li>
-                <li>Step 4.</li>
-                <!-- <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+                <li class="active"><span class="fas fa-user fa-2x"></span></li>
+                <li><span class="fas fa-newspaper fa-2x"></span></li>
+                <li><span class="fas fa-images fa-2x"></span></li>
+                <li><span class="fas fa-credit-card fa-2x"></span></li>
             </ul>
         </div>
+        <div class="row cus-contents">
+            <header>
+                <h1>Create Account</h1>
+                <p>Glad to see you here!</p>
+            </header>
+        </div>
+        <div class="row cus-contents">
+            <form id="createForm" class="AllForm" action="/step1.html" method="POST" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Account</label>
+                            <input type="email" name="Email" data-valid="1" class="form-control" placeholder="hexschool@email.com" data-toggle="tooltip" title="INVALID EMAIL">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="Password" data-valid="1" class="form-control" placeholder="Password" data-toggle="tooltip" title="MINIMUM 8 CHARACTERS">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="ConfirmPassword" data-valid="1" class="form-control" placeholder="Password" data-toggle="tooltip" title="NOT MATCH">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary form-control warn" disabled>SUBMIT & NEXT</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

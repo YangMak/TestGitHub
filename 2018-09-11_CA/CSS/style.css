@@ -1,3 +1,9 @@
+header {
+  margin: 0 auto;
+  text-align: center;
+  text-align: -webkit-center;
+}
+
 .cus-contents {
   padding: 1.5rem;
   padding-top: 2.5em;
@@ -5,6 +11,7 @@
   margin-left: 0;
   border-width: .2rem;
   width: 100%;
+  margin: 0 auto;
 }
 
 .top-line {
@@ -27,6 +34,10 @@
   width: 25%;
   position: relative;
   text-align: center;
+}
+
+.progress-content li span {
+  color: #ddd;
 }
 
 .progress-content li:before {
@@ -58,15 +69,32 @@
   content: none;
 }
 
-.progress-content li.active {
-  color: green;
+.progress-content li.active,
+.progress-content li.active span {
+  color: orange;
 }
 
 .progress-content li.active:before {
-  border-color: green;
+  border-color: orange;
 }
 
-.progress-content li.active + li:after {
-  background-color: green;
+.progress-content li.active:after {
+  background-color: orange;
+}
+
+#createForm {
+  width: 65%;
+}
+
+#GIForm {
+  width: 45%;
+}
+
+.AllForm {
+  margin: 0 auto;
+}
+
+.AllForm .fa-exclamation-triangle {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
