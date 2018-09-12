@@ -1,53 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Step1</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Step 4</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../2018-09-11_CA/CSS/style.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="../2018-09-11_CA/JS/ui-control.js"></script>
+    <script src="../2018-09-11_CA/JS/universal.js"></script>
+    <script src="../2018-09-11_CA/JS/validate-base.js"></script>
+    <script src="../2018-09-11_CA/JS/validate-creditcard.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="top-line"></div>
+            <div class="col-12">
+                <div class="top-line"></div>
+                <div class="progress">
+                    <div class="in done"></div>
+                    <div class="in done"></div>
+                    <div class="in done"></div>
+                    <div class="in"></div>
+                </div>
+            </div>
         </div>
-        <div class="row cus-contents ">
-            <ul class="progress-content">
-                <li class="active"><span class="fas fa-user fa-2x"></span></li>
-                <li class="active"><span class=" fas fa-newspaper fa-2x "></span></li>
-                <li class="active"><span class="fas fa-images fa-2x"></span></li>
-                <li class="active"><span class=" fas fa-credit-card fa-2x "></span></li>
-                <!-- <div class="progress-bar " role="progressbar " style="width: 25% " aria-valuenow="25 " aria-valuemin="0 " aria-valuemax="100 "></div> -->
-            </ul>
+        <div class="row">
+            <div class="col-12">
+                <center>
+                    <h1>Payment Method</h1>
+                    <div>Add your credit card infomation!</div>
+                </center>
+            </div>
         </div>
-        <div class="row cus-contents">
-            <header>
-                <h1>Payment Method</h1>
-                <p>Add your credit card information!</p>
-            </header>
-        </div>
+        <form action="../2018-09-11_CA/congratulation.html" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" name="CardNumber" data-valid="1" class="form-control" placeholder="1234 5678 9012 3456" data-toggle="tooltip" title="INVALID NUMBER">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fab fa-cc-visa visa" style="display: none;"></i>
+                        <i class="fab fa-cc-mastercard master" style="display: none;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" name="CardholderName" class="form-control" placeholder="EXAMPLE NAME">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Bank Name</label>
+                        <input type="text" name="BankName" class="form-control" placeholder="TAIWAN BANK">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" name="CVV" class="form-control" placeholder="666">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Expire Date</label>
+                        <select class="form-control" name="ExpireMonth" data-from="1" data-to="12" required>
+              <option value="" hidden>MM</option>
+            </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <select class="form-control" name="ExpireYear" data-from="2018" data-to="2028" required>
+              <option value="" hidden>YYYY</option>
+            </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary form-control warn" formnovalidate>DONE</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="row cus-contents">
-        <form action=""></form>
-    </div>
-
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js " integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T " crossorigin="anonymous "></script>
-
 </body>
-
-
-<!-- <li class="fas fa-user "></li>
-<li class="fas fa-newspaper "></li>
-<li class="fas fa-images "></li>
-<li class="fas fa-credit-card "></li> -->
 
 </html>
