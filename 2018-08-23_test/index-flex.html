@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex-text</title>
+</head>
+
+<body>
+    <style>
+        #box {
+            width: 960px;
+            height: 800px;
+            border: 6px solid #f00;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            /*align-items: center;*/
+            align-content: space-evenly;
+        }
+        
+        .item {
+            /*width: 300px;*/
+            /*height: 250px;*/
+            font-size: 16px;
+            flex-basis: 137px;
+            /*flex-grow: 1;*/
+        }
+        
+        .item:first-letter {
+            font-weight: 500;
+            font-size: 24px;
+        }
+        
+        .item1 {
+            background-color: #fa0;
+            flex-grow: 2;
+        }
+        
+        .item2 {
+            background-color: #afa;
+            flex-shrink: 1;
+        }
+        
+        .item3 {
+            background-color: #aaf;
+        }
+        
+        .item4 {
+            background-color: #0af
+        }
+        
+        .item5 {
+            background-color: #faf;
+        }
+        
+        .item6 {
+            background-color: #faa;
+        }
+    </style>
+    <div id="box">
+        <div class="item item1">1. The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis. (For the default flex-direction: row the cross axis corresponds to vertical and the main
+            axis corresponds to horizontal. With flex-direction: column those two are interchanged respectively).</div>
+        <div class="item item2">2. The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis. (For the default flex-direction: row the cross axis corresponds to vertical and the main
+            axis corresponds to horizontal. With flex-direction: column those two are interchanged respectively).</div>
+        <div class="item item3">3. The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis. (For the default flex-direction: row the cross axis corresponds to vertical and the main
+            axis corresponds to horizontal.</div>
+        <div class="item item4">4. The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis. (For the default flex-direction: row the cross axis corresponds to vertical and the main
+            axis corresponds to horizontal. With flex-direction: column those two are interchanged respectively).</div>
+        <div class="item item5">5. The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis..</div>
+        <div class="item item6">6. The align-items property of flex-box aligns the items inside a flex container along the cross axis just like justify-content does along the main axis. (For the default flex-direction: row the cross axis corresponds to vertical and the main
+            axis corresponds to horizontal. With flex-direction: column those two are interchanged respectively).</div>
+    </div>
+</body>
+
+</html>
