@@ -5,28 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        gakki-div-template[light] {
-            opacity: 0.5
-        }
-    </style>
+    <title>Vue</title>
+
 </head>
 
 <body>
-    <div id="mak">Qoo</div>
+    <div id="app">
+        <p>总数：{{total}}</p>
+        <model-component v-model="total"></model-component>
+        <!-- <p>总数：{{total1}}</p>
+        <model-component :values="total1" @input="handleGetTotal"></model-component> -->
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js'></script>
+
     <script>
-        const header = document.createElement('header');
-        const shadowRoot = header.attachShadow({
-            mode: 'open'
+        Vue.component('model-component', {
+            props: ['value'],
+            template: '<button :value="value" @click="handleClick">+1</button>',
+            data: function() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                handleClick: function(event) {
+                    //this.counter++;
+                    this.$emit('input', event.target.value);
+                }
+            }
         });
-        shadowRoot.innerHTML = `
-              <style>#menu { color:red }</style> <!-- styles are scoped to fancy-menu! -->
-              <div id="menu">RED</div>
-            `; // Could also use appendChild().
-        // header.shadowRoot === shadowRoot
-        // shadowRoot.host === header
-        document.querySelector('#mak').appendChild(header);
+        new Vue({
+            el: '#app',
+            data: {
+                total: 0,
+                total1: 1
+            }
+            // methods: {
+            //     handleGetTotal: function(total) {
+            //         this.total1 = total;
+            //     }
+            // }
+        });
     </script>
 </body>
 
