@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DFP for GTM</title>
     <style>
-        .adGeekAd iframe {
+        /*.adGeekAd iframe {
             background-color: #faa;
-        }
+        }*/
     </style>
 </head>
 
@@ -21,7 +21,6 @@
     </div>
     <script>
         /// ========== 廣告區塊資訊 (Main Object) ========== ///
-        let companyName = 'DFP';
         let adsBlock = [{
             note: '[首頁] 右側欄第一則 336*280 廣告', // 無作用欄位 類似註解 方便查詢
             divid: 'index_rightSideBarFirst_336280', // 廣告區塊 id 名稱
@@ -48,7 +47,7 @@
             wait: 15 // 至少等待幾秒 [setTimeout]
         }];
 
-        (function(w, adsBlock) {
+        const MainIIFE = ((w, adsBlock) => {
             /// ========== [ Create DFP head defineSlot Lib ] ========== ///
 
             /*---------- create DFP lib gpt.js ----------*/
@@ -109,7 +108,6 @@
                                 AdDom.appendChild(AdBody);
                                 break;
                             case 'prepend':
-
                                 AdDom.insertBefore(AdBody, AdDom.firstChild);
                                 break;
                         }
@@ -129,7 +127,7 @@
                 /* ---------- create Outer divDom ---------- */
                 let AdDom = document.querySelector(B.dom);
                 let AdBody = document.createElement('div');
-                AdBody.id = `${companyName}-${B.divid}`;
+                AdBody.id = `DFP-${B.divid}`;
                 AdBody.className = B.divclass;
                 AdBody.style = B.stycss
 
